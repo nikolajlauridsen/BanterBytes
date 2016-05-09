@@ -1,0 +1,15 @@
+{% extends 'tales/base.html' %}
+
+
+{% block content %}
+
+<ul>
+    <li>
+        <h3>{{article.title}}</h3>
+        <p>Topic: {{article.topic}} | Mood: {{article.mood}}</p>
+        <p>{{article.text}}</p>
+        <p>Article number: {{article.id}} written {{article.date_added|date:'M d, Y h:i'}} by {{article.author}}</p>
+    </li>
+</ul>
+
+{% endblock content %}

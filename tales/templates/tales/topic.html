@@ -1,0 +1,23 @@
+{% extends 'tales/base.html' %}
+
+{% block content %}
+
+<p>Topic: {{topic}}</p>
+
+<p>Entries:</p>
+<ul>
+    {% for entry in entries%}
+        <li>
+            <h3><a href="{% url 'tales:article' entry.id%}">{{entry.title}}</a></h3>
+            <p>Mood: {{entry.mood}}</p>
+            <p>{{entry.text|linebreaks}}</p>
+            <p>Author: {{entry.author}}</p>
+            <p>{{entry.date_added|date:'d M, Y H:i'}}</p>
+        </li>
+    {% empty %}
+        <li>
+            <p>There are no entries for the topic yet.</p>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock content%}

@@ -1,0 +1,23 @@
+{% extends "tales/base.html" %}
+
+{% block content %}
+<p>Tales is a place for me to share my tales as I go through life. Currently this space is just for me</p>
+
+<h2>Recent posts:</h2>
+
+<ul>
+    {% for entry in entries%}
+    <li>
+        <h3><a href="{% url 'tales:article' entry.id%}">{{entry.title}}</a></h3>
+        <p>Topic: {{entry.topic}} | Mood: {{entry.mood}}</p>
+        <p>{{entry.text}}</p>
+        <p>Written: {{entry.date_added|date:'M d, Y h:i'}} by {{entry.author}}</p>
+    </li>
+    {% empty %}
+    <li>
+        <p>No blog posts to display yet.</p>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}

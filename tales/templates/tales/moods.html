@@ -1,0 +1,14 @@
+{% extends "tales/base.html" %}
+
+{% block content %}
+<p>Read every blog post with a specific mood.</p>
+<ul>
+    {% for mood in moods %}
+        <li>
+            <a href="{% url 'tales:mood' mood.id %}">{{mood}}</a>
+        </li>
+    {% empty %}
+        <li>No moods added yet.</li>
+    {% endfor %}
+</ul>
+{% endblock content %}
