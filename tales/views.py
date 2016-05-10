@@ -51,3 +51,12 @@ def article(request, article_id):
     moods = Mood.objects.order_by("-date_added")
     context = {'article':article, 'topics':topics, 'moods':moods}
     return render(request, 'tales/article.html', context)
+
+
+def archive(request):
+    """Page displaying all blog entries"""
+    entries = Entry.objects.order_by("-date_added")
+    topics = Topic.objects.order_by("-date_added")
+    moods = Mood.objects.order_by("-date_added")
+    context = {'entries':entries, 'topics':topics, 'moods':moods}
+    return render(request, 'tales/archive.html', context)

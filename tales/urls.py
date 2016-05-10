@@ -15,5 +15,7 @@ urlpatterns = [
     # Show all etries for a specific mood
     url(r'^moods/(?P<mood_id>\d+)/$', views.mood, name='mood'),
     # display a specific article
-    url(r'^article/(?P<article_id>\d+)/$', views.article, name='article')
+    url(r'^article/(?P<article_id>\d+)/$', views.article, name='article'),
+    # archive. Display all blog entries
+    url(r'^archive/$', views.archive, name='archive')
 ]
