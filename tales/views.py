@@ -7,9 +7,10 @@ from .models import Topic, Mood, Entry
 
 def index(request):
     """The Home page of tales"""
-    entries = Entry.objects.order_by("-date_added")
-    entries = entries[0:4]
-    context = {'entries':entries}
+    entries = Entry.objects.order_by("-date_added")[:4]
+    topics = Topic.objects.order_by("-date_added")
+    moods = Mood.objects.order_by("-date_added")
+    context = {'entries':entries, 'topics':topics, 'moods':moods}
     return render(request, 'tales/index.html', context)
 
 
@@ -46,5 +47,7 @@ def mood(request, mood_id):
 def article(request, article_id):
     """Page displaying a specific article"""
     article = Entry.objects.get(id=article_id)
-    context = {'article':article}
+    topics = Topic.objects.order_by("-date_added")
+    moods = Mood.objects.order_by("-date_added")
+    context = {'article':article, 'topics':topics, 'moods':moods}
     return render(request, 'tales/article.html', context)

@@ -3,8 +3,29 @@
 {% block content %}
 <p>Tales is a place for me to share my tales as I go through life. Currently this space is just for me</p>
 
-<h2>Recent posts:</h2>
+<h3><a href="{% url 'tales:topics' %}">Topics:</a></h3>
+<ul>
+    {% for topic in topics %}
+    <li>
+    <a href="{% url 'tales:topic' topic.id%}">{{topic}}</a>
+    </li>
+    {% empty %}
+    <p>No topics yet.</p>
+    {% endfor %}
+</ul>
 
+<h3><a href="{% url 'tales:moods' %}">Moods:</a></h3>
+<ul>
+    {% for mood in moods %}
+    <li>
+        <a href="{% url 'tales:mood' mood.id%}">{{mood}}</a>
+    </li>
+    {% empty %}
+    <p>No mood yet</p>
+    {% endfor %}
+</ul>
+
+<h2>Recent posts:</h2>
 <ul>
     {% for entry in entries%}
     <li>

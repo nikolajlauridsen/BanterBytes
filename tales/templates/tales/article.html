@@ -1,7 +1,28 @@
 {% extends 'tales/base.html' %}
 
-
 {% block content %}
+
+<h3><a href="{% url 'tales:topics' %}">Topics:</a> </h3>
+<ul>
+    {% for topic in topics %}
+    <li>
+        <a href="{% url 'tales:topic' topic.id %}">{{topic}}</a>
+    </li>
+    {% empty %}
+    <li>No topics has been added yet.</li>
+    {% endfor %}
+</ul>
+
+<h3><a href="{% url 'tales:moods' %}">Moods:</a> </h3>
+<ul>
+    {% for mood in moods %}
+    <li>
+        <a href="{% url 'tales:mood' mood.id%}">{{mood}}</a>
+    </li>
+    {% empty %}
+    <li>No mood has been added yet.</li>
+    {% endfor %}
+</ul>
 
 <ul>
     <li>
@@ -11,5 +32,4 @@
         <p>Article number: {{article.id}} written {{article.date_added|date:'M d, Y h:i'}} by {{article.author}}</p>
     </li>
 </ul>
-
 {% endblock content %}
