@@ -16,14 +16,14 @@ def index(request):
 
 def topics(request):
     """Page displaying all topics"""
-    topics = Topic.objects.order_by("date_added")
+    topics = Topic.objects.order_by("-date_added")
     context = {'topics': topics}
     return render(request, 'tales/topics.html', context)
 
 
 def moods(request):
     """Page displaying all topics"""
-    moods = Mood.objects.order_by("date_added")
+    moods = Mood.objects.order_by("-date_added")
     context = {'moods': moods}
     return render(request, 'tales/moods.html', context)
 
@@ -37,7 +37,7 @@ def topic(request, topic_id):
 
 
 def mood(request, mood_id):
-    """Page displaying all entries for a specific topic"""
+    """Page displaying all entries for a specific mood"""
     mood = Mood.objects.get(id=mood_id)
     entries = mood.entry_set.order_by('-date_added')
     context = {'mood': mood, 'entries': entries}

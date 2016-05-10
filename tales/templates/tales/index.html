@@ -30,7 +30,7 @@
     {% for entry in entries%}
     <li>
         <h3><a href="{% url 'tales:article' entry.id%}">{{entry.title}}</a></h3>
-        <p>Topic: {{entry.topic}} | Mood: {{entry.mood}}</p>
+        <p>Topic: <a href="{% url 'tales:topic' entry.topic.id%}">{{entry.topic}}</a> | Mood: <a href="{% url 'tales:mood' entry.mood.id %}">{{entry.mood}}</a></p>
         <p>{{entry.text}}</p>
         <p>Written: {{entry.date_added|date:'M d, Y h:i'}} by {{entry.author}}</p>
     </li>
