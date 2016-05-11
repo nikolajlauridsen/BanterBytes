@@ -8,12 +8,9 @@ from .models import Topic, Mood, Entry
 def index(request):
     """The Home page of tales"""
     entries = Entry.objects.order_by("-date_added")[:4]
-    entry_short = []
-    for entry in entries:
-        entry_short.append(entry.text[:300])
     topics = Topic.objects.order_by("-date_added")
     moods = Mood.objects.order_by("-date_added")
-    context = {'entries':entries, 'topics':topics, 'moods':moods, 'entry_short':entry_short}
+    context = {'entries':entries, 'topics':topics, 'moods':moods}
     return render(request, 'tales/index.html', context)
 
 
