@@ -1,13 +1,13 @@
 {% extends 'tales/base.html' %}
 
 {% block header %}
-    <h2>{{topic}}</h2>
+    <h2 class="header">{{topic}}</h2>
 {% endblock header %}
 
 {% block content %}
 <ul>
     {% for entry in entries%}
-        <div class="panel panel-default" class="entry">
+        <div class="panel panel-default">
             <div class="panel-heading">
                 <h3>{{ entry.title }}</h3>
                 <p>Mood: <a href="{% url 'tales:mood' entry.mood.id %}">{{entry.mood}}</a></p>

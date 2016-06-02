@@ -2,3 +2,12 @@
     margin-left:10%;
     margin-right:10%;
 }
+
+.page-header h1,
+.page-header h2{
+    padding-left:20px;
+}
+
+body h2{
+    padding-left: 5%;
+}
