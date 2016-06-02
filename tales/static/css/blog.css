@@ -3,11 +3,20 @@
     margin-right:10%;
 }
 
-.page-header h1,
-.page-header h2{
-    padding-left:20px;
+.jumbotron{
+    background-image: url(http://img09.deviantart.net/f88c/i/2012/139/b/a/sunny_forrest_by_peenbuiker-d50b44a.jpg);
+    height: 500px;
 }
 
-body h2{
-    padding-left: 5%;
+#recentPosts{
+    margin-left: 12%
 }
+
+.jumbotron h1, .jumbotron h3{
+    color: #eEf4f1;
+    text-align: center;
+    position: relative;
+    top:35%;
+    text-shadow: 2px 2px #222222;
+}
+
