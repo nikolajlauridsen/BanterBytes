@@ -1,22 +1,26 @@
 {% extends 'tales/base.html' %}
 
+{% block header %}
+    <h2>{{topic}}</h2>
+{% endblock header %}
+
 {% block content %}
-
-<p>Topic: {{topic}}</p>
-
-<p>Posts:</p>
 <ul>
     {% for entry in entries%}
-        <li>
-            <h3><a href="{% url 'tales:article' entry.id%}">{{entry.title}}</a></h3>
-            <p>Mood: <a href="{% url 'tales:mood' entry.mood.id %}">{{entry.mood}}</a></p>
-            <p>{{entry.text|safe|linebreaks|truncatewords:50}}</p>
-            <p>Written {{entry.date_added|date:'M d, Y \a\t h:i'}} by {{entry.author}}</p>
-        </li>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3>{{ entry.title }}</h3>
+                <p>Mood: <a href="{% url 'tales:mood' entry.mood.id %}">{{entry.mood}}</a></p>
+            </div>
+            <div class="panel-body">
+                {{entry.text|safe|linebreaks|truncatewords:50}}
+                <p>Written {{entry.date_added|date:'M d, Y \a\t h:i'}} by {{entry.author}}</p>
+            </div>
+        </div> <!-- panel -->
     {% empty %}
-        <li>
-            <p>There are no entries for the topic yet.</p>
-        </li>
+        There are no entries for the topic yet.
     {% endfor %}
 </ul>
 {% endblock content%}
+
+

@@ -33,12 +33,17 @@
 <h2>Recent posts:</h2>
 <ul>
     {% for entry in entries%}
-    <li>
-        <h3><a href="{% url 'tales:article' entry.id%}">{{entry.title}}</a></h3>
-        <p>Topic: <a href="{% url 'tales:topic' entry.topic.id%}">{{entry.topic}}</a> | Mood: <a href="{% url 'tales:mood' entry.mood.id %}">{{entry.mood}}</a></p>
-        <p>{{entry.text|safe|linebreaks|truncatewords:50}}</p>
-        <p>Written: {{entry.date_added|date:'M d, Y \a\t h:i'}} by {{entry.author}}</p>
-    </li>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3><a href="{% url 'tales:article' entry.id %}">{{ entry.title }}</a></h3>
+                <p>Topic: <a href="{% url 'tales:topic' entry.topic.id%}">{{entry.topic}}</a>
+                | Mood: <a href="{% url 'tales:mood' entry.mood.id %}">{{entry.mood}}</a></p>
+            </div>
+            <div class="panel-body">
+                {{entry.text|safe|linebreaks|truncatewords:50}}
+                <p>Written {{entry.date_added|date:'M d, Y \a\t h:i'}} by {{entry.author}}</p>
+            </div>
+        </div>
     {% empty %}
     <li>
         <p>No blog posts to display yet.</p>
