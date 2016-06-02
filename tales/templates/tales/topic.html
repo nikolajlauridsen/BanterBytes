@@ -7,7 +7,7 @@
 {% block content %}
 <ul>
     {% for entry in entries%}
-        <div class="panel panel-default">
+        <div class="panel panel-default" class="entry">
             <div class="panel-heading">
                 <h3>{{ entry.title }}</h3>
                 <p>Mood: <a href="{% url 'tales:mood' entry.mood.id %}">{{entry.mood}}</a></p>
@@ -24,3 +24,7 @@
 {% endblock content%}
 
 
+{% load bootstrap3 %}
+
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}

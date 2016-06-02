@@ -1,4 +1,5 @@
 {% load bootstrap3 %}
+{% load staticfiles %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +11,7 @@
         <title>Tales</title>
         {% bootstrap_css %}
         {% bootstrap_javascript %}
-
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
 
     <body>
