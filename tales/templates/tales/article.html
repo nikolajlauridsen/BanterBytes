@@ -31,7 +31,7 @@
         <h3>{{article.title}}</h3>
         <p>Topic: <a href="{% url 'tales:topic' article.topic.id %}">{{article.topic}}</a> | Mood: <a href="{% url 'tales:mood' article.mood.id %}">{{article.mood}}</a></p>
         <p>{{article.text|safe|linebreaks}}</p>
-        <p>Written {{article.date_added|date:'M d, Y h:i'}} by {{article.author}}</p>
+        <p>Written {{article.date_added|date:'M d, Y \a\t h:i'}} by {{article.author}}</p>
     </li>
 </ul>
 {% endblock content %}

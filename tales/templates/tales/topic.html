@@ -11,8 +11,7 @@
             <h3><a href="{% url 'tales:article' entry.id%}">{{entry.title}}</a></h3>
             <p>Mood: <a href="{% url 'tales:mood' entry.mood.id %}">{{entry.mood}}</a></p>
             <p>{{entry.text|safe|linebreaks|truncatewords:50}}</p>
-            <p>Author: {{entry.author}}</p>
-            <p>{{entry.date_added|date:'d M, Y H:i'}}</p>
+            <p>Written {{entry.date_added|date:'M d, Y \a\t h:i'}} by {{entry.author}}</p>
         </li>
     {% empty %}
         <li>

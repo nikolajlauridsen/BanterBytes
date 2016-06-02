@@ -1,7 +1,52 @@
- <p>
-     <a href="{% url 'tales:index' %}">Tales</a> -
-     <a href="{% url 'tales:archive' %}">Archive</a>
- </p>
+{% load bootstrap3 %}
 
-{% block content %}
-{% endblock content%}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Tales</title>
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+
+    </head>
+
+    <body>
+    <!-- Static navbar --->
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="containter">
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed"
+                            data-toggle="collapse" data-target="#navbar"
+                            aria-expanded="false" aria-controls="navbar">
+                    </button>
+                    <a class="navbar-brand" href="{% url 'tales:index' %}">
+                    Tales</a>
+                </div>
+
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="{% url 'tales:topics' %}">Topics</a> </li>
+                        <li><a href="{% url 'tales:moods' %}">Moods</a></li>
+                    </ul>
+                </div>
+
+            </div> <!-- /container -->
+        </nav>
+
+    <div class="containter">
+
+        <div class="page-header">
+            {% block header %}{% endblock header %}
+        </div>
+        <div>
+            {% block content %}{% endblock content %}
+        </div>
+
+    </div> <!-- /container -->
+
+    </body>
+</html>
