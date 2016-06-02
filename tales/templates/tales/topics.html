@@ -1,11 +1,17 @@
 {% extends "tales/base.html" %}
 
+{% block header %}
+    <h2>Topics</h2>
+{% endblock header %}
+
 {% block content %}
-<p>Read every blog posts with a specific topic.</p>
+<h4>Read every blog posts with a specific topic.</h4>
 <ul>
     {% for topic in topics %}
         <li>
-            <a href="{% url 'tales:topic' topic.id %}">{{topic}}</a>
+            <h5>
+                <a href="{% url 'tales:topic' topic.id %}">{{topic}}</a>
+            </h5>
         </li>
     {% empty %}
         <li>No topics has been added yet.</li>
