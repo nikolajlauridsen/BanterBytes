@@ -1,13 +1,13 @@
 {% extends 'tales/base.html' %}
 
 {% block header %}
-    <div class="indent-1 article-header">
+    <div class="indent-1">
        <h3>{{article.title}}</h3>
         <p>
             Topic: <a href="{% url 'tales:topic' article.topic.id %}">{{article.topic}}</a>
           | Mood: <a href="{% url 'tales:mood' article.mood.id %}">{{article.mood}}</a>
         </p>
-        <p>Written {{article.date_added|date:'M d, Y \a\t h:i'}} by {{article.author}}</p>
+        <p>Written {{article.date_added|date:'M d, Y \a\t H:i'}} by {{article.author}}</p>
     </div>
 {% endblock header %}
 

@@ -1,13 +1,15 @@
 .jumbotron{
     background-image: url(http://img09.deviantart.net/f88c/i/2012/139/b/a/sunny_forrest_by_peenbuiker-d50b44a.jpg);
     height: 400px;
+    padding: 0px;
+    margin: 0px;
 }
 
 .jumbotron h1, .jumbotron h3{
     color: #eEf4f1;
     text-align: center;
     position: relative;
-    top:35%;
+    top:40%;
     text-shadow: 2px 2px #222222;
 }
 
@@ -28,14 +30,11 @@ h3 a:hover{
 }
 
 .indent-2{
-    margin-left: 17%;
+    margin-left: 5%;
 }
 
 ul{
     padding:0px;
 }
 
-.article-header{
-    align-content: center;
-}
 

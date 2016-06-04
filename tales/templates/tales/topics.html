@@ -1,12 +1,14 @@
 {% extends "tales/base.html" %}
 
 {% block header %}
-    <h2>Topics</h2>
+    <div class="indent-1">
+        <h1>Topics</h1>
+        <p>Read every blog post with a specific topic.</p>
+    </div>
 {% endblock header %}
 
 {% block content %}
-<h4>Read every blog posts with a specific topic.</h4>
-<ul>
+<ul class="indent-1">
     {% for topic in topics %}
         <li>
             <h5>

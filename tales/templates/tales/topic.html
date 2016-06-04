@@ -1,30 +1,37 @@
 {% extends 'tales/base.html' %}
 
 {% block header %}
-    <h2 class="header">{{topic}}</h2>
+<div class="indent-1">
+    <h1>{{topic}}</h1>
+    <p>Read every blog post about {{topic}}</p>
+</div>
 {% endblock header %}
 
 {% block content %}
-<ul>
-    {% for entry in entries%}
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3>{{ entry.title }}</h3>
-                <p>Mood: <a href="{% url 'tales:mood' entry.mood.id %}">{{entry.mood}}</a></p>
+<!--All posts block!-->
+<div class ="col-md-2"></div>
+
+<div class="col-md-8">
+    <ul>
+        {% for entry in entries%}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3><a href="{% url 'tales:article' entry.id %}">{{ entry.title }}</a></h3>
+                    <p>Topic: <a href="{% url 'tales:topic' entry.topic.id%}">{{entry.topic}}</a>
+                    | Mood: <a href="{% url 'tales:mood' entry.mood.id %}">{{entry.mood}}</a></p>
+                    <p>Written {{entry.date_added|date:'M d, Y \a\t H:i'}} by {{entry.author}}</p>
+                </div>
+                <div class="panel-body">
+                    {{entry.text|safe|linebreaks|truncatewords:50}}
+                </div>
             </div>
-            <div class="panel-body">
-                {{entry.text|safe|linebreaks|truncatewords:50}}
-                <p>Written {{entry.date_added|date:'M d, Y \a\t h:i'}} by {{entry.author}}</p>
-            </div>
-        </div> <!-- panel -->
-    {% empty %}
-        There are no entries for the topic yet.
-    {% endfor %}
-</ul>
+        {% empty %}
+        <li>
+            <p>No blog posts to display yet.</p>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="col-md-2"></div>
 {% endblock content%}
-
-
-{% load bootstrap3 %}
-
-        {% bootstrap_css %}
-        {% bootstrap_javascript %}

@@ -1,8 +1,10 @@
 {% extends "tales/base.html" %}
 
 {% block header %}
-<h1 class="indent-1">Archive</h1>
-<p class="indent-1">Read every blog post written.</p>
+<div class="indent-1">
+    <h1>Archive</h1>
+    <p>Read every blog post written.</p>
+</div>
 {% endblock header %}
 
 {% block content %}
@@ -17,7 +19,7 @@
                     <h3><a href="{% url 'tales:article' entry.id %}">{{ entry.title }}</a></h3>
                     <p>Topic: <a href="{% url 'tales:topic' entry.topic.id%}">{{entry.topic}}</a>
                     | Mood: <a href="{% url 'tales:mood' entry.mood.id %}">{{entry.mood}}</a></p>
-                    <p>Written {{entry.date_added|date:'M d, Y \a\t h:i'}} by {{entry.author}}</p>
+                    <p>Written {{entry.date_added|date:'M d, Y \a\t H:i'}} by {{entry.author}}</p>
                 </div>
                 <div class="panel-body">
                     {{entry.text|safe|linebreaks|truncatewords:50}}
