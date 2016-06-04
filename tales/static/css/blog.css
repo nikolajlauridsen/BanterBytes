@@ -22,10 +22,20 @@ h3 a:hover{
     color: #333333;
 }
 
+
 .indent-1{
-    margin-left: 5%
+    margin-left: 2%
 }
 
 .indent-2{
     margin-left: 17%;
 }
+
+ul{
+    padding:0px;
+}
+
+.article-header{
+    align-content: center;
+}
+

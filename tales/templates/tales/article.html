@@ -1,7 +1,7 @@
 {% extends 'tales/base.html' %}
 
 {% block header %}
-    <div class="indent-1">
+    <div class="indent-1 article-header">
        <h3>{{article.title}}</h3>
         <p>
             Topic: <a href="{% url 'tales:topic' article.topic.id %}">{{article.topic}}</a>
@@ -13,5 +13,9 @@
 
 {% block content %}
 <!-- Article block !-->
+<div class="col-md-2"></div>
+<div class="article-content col-md-8">
     <p>{{article.text|safe|linebreaks}}</p>
+</div>
+<div class="col-md-2"></div>
 {% endblock content %}
