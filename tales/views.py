@@ -60,3 +60,11 @@ def archive(request):
     moods = Mood.objects.order_by("-date_added")
     context = {'entries':entries, 'topics':topics, 'moods':moods}
     return render(request, 'tales/archive.html', context)
+
+
+def about(request):
+    """About page"""
+    post_count = len(Entry.objects.all())
+    context = {'p_count':post_count}
+    return render(request, 'tales/about.html', context)
+

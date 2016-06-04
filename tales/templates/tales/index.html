@@ -22,8 +22,8 @@
                     | Mood: <a href="{% url 'tales:mood' entry.mood.id %}">{{entry.mood}}</a></p>
                     <p>Written {{entry.date_added|date:'M d, Y \a\t H:i'}} by {{entry.author}}</p>
                 </div>
-                <div class="panel-body">
-                    {{entry.text|safe|linebreaks|truncatewords:50}}
+                <div class="panel-body"> <!-- TODO: add link to article -->
+                    {{entry.text|safe|linebreaks|truncatewords:100}}
                 </div>
             </div>
         {% empty %}

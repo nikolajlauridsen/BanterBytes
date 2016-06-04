@@ -16,5 +16,7 @@ urlpatterns = [
     # display a specific article
     url(r'^article/(?P<article_id>\d+)/$', views.article, name='article'),
     # archive. Display all blog entries
-    url(r'^archive/$', views.archive, name='archive')
+    url(r'^archive/$', views.archive, name='archive'),
+    # About page
+    url(r'^about/$', views.about, name='about')
 ]
