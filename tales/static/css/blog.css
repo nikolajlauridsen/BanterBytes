@@ -1,6 +1,6 @@
 .panel-default{
-    margin-left:10%;
-    margin-right:10%;
+    margin-left:15%;
+    margin-right:15%;
 }
 
 .jumbotron{
@@ -9,7 +9,7 @@
 }
 
 #recentPosts{
-    margin-left: 12%
+    margin-left: 17%
 }
 
 .jumbotron h1, .jumbotron h3{
@@ -20,3 +20,13 @@
     text-shadow: 2px 2px #222222;
 }
 
+h3 a{
+    color: #333333;
+
+}
+
+h3 a:hover{
+    text-decoration: none;
+    opacity: 0.4;
+    color: #333333;
+}
