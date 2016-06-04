@@ -1,37 +1,17 @@
 {% extends 'tales/base.html' %}
 
-{% block content %}
-<!-- Topics side panel !-->
-<h3><a href="{% url 'tales:topics' %}">Topics:</a> </h3>
-<ul>
-    {% for topic in topics %}
-    <li>
-        <a href="{% url 'tales:topic' topic.id %}">{{topic}}</a>
-    </li>
-    {% empty %}
-    <li>No topics has been added yet.</li>
-    {% endfor %}
-</ul>
-
-<!-- Moods side panel !-->
-<h3><a href="{% url 'tales:moods' %}">Moods:</a> </h3>
-<ul>
-    {% for mood in moods %}
-    <li>
-        <a href="{% url 'tales:mood' mood.id %}">{{mood}}</a>
-    </li>
-    {% empty %}
-    <li>No mood has been added yet.</li>
-    {% endfor %}
-</ul>
-
-<!-- Article block !-->
-<ul>
-    <li>
-        <h3>{{article.title}}</h3>
-        <p>Topic: <a href="{% url 'tales:topic' article.topic.id %}">{{article.topic}}</a> | Mood: <a href="{% url 'tales:mood' article.mood.id %}">{{article.mood}}</a></p>
-        <p>{{article.text|safe|linebreaks}}</p>
+{% block header %}
+    <div class="indent-1">
+       <h3>{{article.title}}</h3>
+        <p>
+            Topic: <a href="{% url 'tales:topic' article.topic.id %}">{{article.topic}}</a>
+          | Mood: <a href="{% url 'tales:mood' article.mood.id %}">{{article.mood}}</a>
+        </p>
         <p>Written {{article.date_added|date:'M d, Y \a\t h:i'}} by {{article.author}}</p>
-    </li>
-</ul>
+    </div>
+{% endblock header %}
+
+{% block content %}
+<!-- Article block !-->
+    <p>{{article.text|safe|linebreaks}}</p>
 {% endblock content %}

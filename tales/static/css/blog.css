@@ -1,15 +1,6 @@
-.panel-default{
-    margin-left:15%;
-    margin-right:15%;
-}
-
 .jumbotron{
     background-image: url(http://img09.deviantart.net/f88c/i/2012/139/b/a/sunny_forrest_by_peenbuiker-d50b44a.jpg);
-    height: 500px;
-}
-
-#recentPosts{
-    margin-left: 17%
+    height: 400px;
 }
 
 .jumbotron h1, .jumbotron h3{
@@ -29,4 +20,12 @@ h3 a:hover{
     text-decoration: none;
     opacity: 0.4;
     color: #333333;
+}
+
+.indent-1{
+    margin-left: 5%
+}
+
+.indent-2{
+    margin-left: 17%;
 }

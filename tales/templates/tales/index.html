@@ -2,31 +2,36 @@
 
 {% block header %}
     <div class='jumbotron'>
-        <h1>Tales of a mundane life.</h1>
-        <h3>Lorem Ipsum.</h3>
+        <h1>Tales</h1>
+        <h3>of a mundane life</h3>
     </div>
 {% endblock header %}
 
 {% block content %}
 
-<h2 id="recentPosts">Recent posts:</h2>
-<ul>
-    {% for entry in entries%}
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3><a href="{% url 'tales:article' entry.id %}">{{ entry.title }}</a></h3>
-                <p>Topic: <a href="{% url 'tales:topic' entry.topic.id%}">{{entry.topic}}</a>
-                | Mood: <a href="{% url 'tales:mood' entry.mood.id %}">{{entry.mood}}</a></p>
-                <p>Written {{entry.date_added|date:'M d, Y \a\t h:i'}} by {{entry.author}}</p>
+<div class ="col-md-2"></div>
+
+<div class="col-md-8">
+    <ul>
+        {% for entry in entries%}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3><a href="{% url 'tales:article' entry.id %}">{{ entry.title }}</a></h3>
+                    <p>Topic: <a href="{% url 'tales:topic' entry.topic.id%}">{{entry.topic}}</a>
+                    | Mood: <a href="{% url 'tales:mood' entry.mood.id %}">{{entry.mood}}</a></p>
+                    <p>Written {{entry.date_added|date:'M d, Y \a\t h:i'}} by {{entry.author}}</p>
+                </div>
+                <div class="panel-body">
+                    {{entry.text|safe|linebreaks|truncatewords:50}}
+                </div>
             </div>
-            <div class="panel-body">
-                {{entry.text|safe|linebreaks|truncatewords:50}}
-            </div>
-        </div>
-    {% empty %}
-    <li>
-        <p>No blog posts to display yet.</p>
-    </li>
-    {% endfor %}
-</ul>
+        {% empty %}
+        <li>
+            <p>No blog posts to display yet.</p>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="col-md-2"></div>
 {% endblock content %}

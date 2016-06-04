@@ -1,48 +1,35 @@
 {% extends "tales/base.html" %}
 
+{% block header %}
+<h1 class="indent-1">Archive</h1>
+<p class="indent-1">Read every blog post written.</p>
+{% endblock header %}
+
 {% block content %}
-<h1>Archive</h1>
-<p>Read every blog post written.</p>
-
-<!--Topics side panel!-->
-<h3><a href="{% url 'tales:topics' %}">Topics:</a></h3>
-<ul>
-    {% for topic in topics %}
-    <li>
-    <a href="{% url 'tales:topic' topic.id%}">{{topic}}</a>
-    </li>
-    {% empty %}
-    <p>No topics yet.</p>
-    {% endfor %}
-</ul>
-
-<!--Moods side panel!-->
-<h3><a href="{% url 'tales:moods' %}">Moods:</a></h3>
-<ul>
-    {% for mood in moods %}
-    <li>
-        <a href="{% url 'tales:mood' mood.id%}">{{mood}}</a>
-    </li>
-    {% empty %}
-    <p>No mood yet</p>
-    {% endfor %}
-</ul>
-
 <!--All posts block!-->
-<h2>All posts:</h2>
-<ul>
-    {% for entry in entries%}
-    <li>
-        <h3><a href="{% url 'tales:article' entry.id%}">{{entry.title}}</a></h3>
-        <p>Topic: <a href="{% url 'tales:topic' entry.topic.id%}">{{entry.topic}}</a> | Mood: <a href="{% url 'tales:mood' entry.mood.id %}">{{entry.mood}}</a></p>
-        <p>{{entry.text|safe|linebreaks|truncatewords:50}}</p>
-        <p>Written: {{entry.date_added|date:'M d, Y h:i'}} by {{entry.author}}</p>
-    </li>
-    {% empty %}
-    <li>
-        <p>No blog posts to display yet.</p>
-    </li>
-    {% endfor %}
-</ul>
+<div class ="col-md-2"></div>
 
+<div class="col-md-8">
+    <ul>
+        {% for entry in entries%}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3><a href="{% url 'tales:article' entry.id %}">{{ entry.title }}</a></h3>
+                    <p>Topic: <a href="{% url 'tales:topic' entry.topic.id%}">{{entry.topic}}</a>
+                    | Mood: <a href="{% url 'tales:mood' entry.mood.id %}">{{entry.mood}}</a></p>
+                    <p>Written {{entry.date_added|date:'M d, Y \a\t h:i'}} by {{entry.author}}</p>
+                </div>
+                <div class="panel-body">
+                    {{entry.text|safe|linebreaks|truncatewords:50}}
+                </div>
+            </div>
+        {% empty %}
+        <li>
+            <p>No blog posts to display yet.</p>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="col-md-2"></div>
 {% endblock content %}
