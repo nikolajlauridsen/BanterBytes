@@ -1,22 +1,30 @@
 {% extends "tales/base.html" %}
 
 {% block header %}
-    <div class="indent-1">
+    <div class="jumbotron">
         <h1>Moods</h1>
-        <p>Read every blog post with a specific mood.</p>
+        <h3>Read every blog post with a specific mood.</h3>
     </div>
 {% endblock header %}
 
 {% block content %}
-<ul class="indent-1">
-    {% for mood in moods %}
-        <li>
-            <h5>
-                <a href="{% url 'tales:mood' mood.id %}">{{mood}}</a>
-            </h5>
-        </li>
-    {% empty %}
-        <li>No moods added yet.</li>
-    {% endfor %}
-</ul>
+<div class="col-md-2"></div>
+
+<div class="col-md-8">
+    <div class="container">
+        <ul class="indent-1">
+            {% for mood in moods %}
+                <li>
+                    <h3>
+                        <a href="{% url 'tales:mood' mood.id %}">{{mood}}</a>
+                    </h3>
+                </li>
+            {% empty %}
+                <li>No topics has been added yet.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<div class="col-md-2"></div>
 {% endblock content %}

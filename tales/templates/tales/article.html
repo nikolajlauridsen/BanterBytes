@@ -1,8 +1,8 @@
 {% extends 'tales/base.html' %}
 
 {% block header %}
-    <div class="indent-1">
-       <h3>{{article.title}}</h3>
+    <div class="jumbotron">
+       <h2>{{article.title}}</h2>
         <p>
             Topic: <a href="{% url 'tales:topic' article.topic.id %}">{{article.topic}}</a>
           | Mood: <a href="{% url 'tales:mood' article.mood.id %}">{{article.mood}}</a>

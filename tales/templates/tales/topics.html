@@ -1,22 +1,44 @@
 {% extends "tales/base.html" %}
 
 {% block header %}
-    <div class="indent-1">
+    <div class="jumbotron">
         <h1>Topics</h1>
-        <p>Read every blog post with a specific topic.</p>
+        <h3>Read every blog post with a specific topic.</h3>
     </div>
 {% endblock header %}
 
 {% block content %}
-<ul class="indent-1">
-    {% for topic in topics %}
-        <li>
-            <h5>
-                <a href="{% url 'tales:topic' topic.id %}">{{topic}}</a>
-            </h5>
-        </li>
-    {% empty %}
-        <li>No topics has been added yet.</li>
-    {% endfor %}
-</ul>
+<div class="col-md-2"></div>
+
+<div class="col-md-8">
+    <div class="container">
+        <ul class="indent-1">
+            {% for topic in topics %}
+                <li>
+                    <h3>
+                        <a href="{% url 'tales:topic' topic.id %}">{{topic}}</a>
+                    </h3>
+                </li>
+            {% empty %}
+                <li>No topics has been added yet.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<div class="col-md-2"></div>
 {% endblock content %}
+
+
+
+
+<div class="nav">
+      <div class="container">
+        <ul class="pull-left">
+          <li><a href="index.html">Hjem</a></li>
+          <li><a href="about.html">Om mig</a></li>
+          <li><a href="cv.html">CV</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+    </div>

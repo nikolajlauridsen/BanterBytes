@@ -5,7 +5,7 @@
     margin: 0px;
 }
 
-.jumbotron h1, .jumbotron h3{
+.jumbotron h1, .jumbotron h2, .jumbotron h3{
     color: #eEf4f1;
     text-align: center;
     position: relative;
@@ -13,10 +13,36 @@
     text-shadow: 2px 2px #222222;
 }
 
+.jumbotron a{
+    text-decoration: none;
+    color: #eEf4f1
+}
+    
+.jumbotron p{
+    color: #eEf4f1;
+    text-align: center;
+    position: relative;
+    top:40%;
+    text-shadow: 1.4px 1.4px #222222;
+    font-size: 15px;
+    margin: 3px;
+
+}
+
 h3 a{
     color: #333333;
 
 }
+
+.container{
+    text-align:  center;
+}
+
+.container ul{
+    list-style: none;
+    margin: 0px;
+}
+
 
 h3 a:hover{
     text-decoration: none;
