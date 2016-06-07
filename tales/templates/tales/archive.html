@@ -9,9 +9,9 @@
 
 {% block content %}
 <!--All posts block!-->
-<div class ="col-md-2"></div>
+<div class ="col-md-3"></div>
 
-<div class="col-md-8">
+<div class="col-md-6">
     <ul>
         {% for entry in entries%}
             <div class="panel panel-default">
@@ -22,7 +22,7 @@
                     <p>Written {{entry.date_added|date:'M d, Y \a\t H:i'}} by {{entry.author}}</p>
                 </div>
                 <div class="panel-body">
-                    {{entry.text|safe|linebreaks|truncatewords:50}}
+                    {{entry.text|safe|linebreaks|truncatewords:100}}<a href="{% url 'tales:article' entry.id %}">Read more</a>
                 </div>
             </div>
         {% empty %}
@@ -34,7 +34,7 @@
     <a href="#top" class="pull-right">Top</a>
 </div>
 
-<div class="col-md-2"></div>
+<div class="col-md-3"></div>
 
 
 {% endblock content %}
