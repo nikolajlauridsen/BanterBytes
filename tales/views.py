@@ -67,4 +67,3 @@ def about(request):
     post_count = len(Entry.objects.all())
     context = {'p_count':post_count}
     return render(request, 'tales/about.html', context)
-
