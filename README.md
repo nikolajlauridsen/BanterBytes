@@ -1,3 +1,3 @@
-# BanterBytes
+#banter Bytes
 ##Is live at:
-#(banterbytes.me)
+#[BanterBytes.me](banterbytes.me)
